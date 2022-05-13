@@ -14,5 +14,8 @@ export const actions = {
     },
     async getRegisters({state, commit}){
         return await PlatesService.getRegisters(this.$axios)
+    },
+    async putRegisterId({state, commit}, data){
+        return await PlatesService.putRegisterId(this.$axios, data)
     }
 }

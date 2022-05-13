@@ -13,4 +13,7 @@ export default {
     getRegisters: ($axios) => {
         return $axios.$get(`${base}/all`)
     },
+    putRegisterId: ($axios, id) => {
+        return $axios.$put(`${base}/register/${id}`)
+    }, 
 }

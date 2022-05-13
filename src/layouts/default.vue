@@ -63,7 +63,7 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
-          title: 'Consultar Placa',
+          title: 'Registros',
           to: '/consulta-rq'
         }
       ],

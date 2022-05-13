@@ -56,7 +56,8 @@
       <template v-slot:item.actions="{ item }" >
         <v-btn v-if="item.status == 0"
           small
-          color="success">
+          color="success"
+          @click="updateStatus(item._id)">
             Finalizar
         </v-btn>
       </template>
@@ -94,7 +95,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions("plates",['getIsPlatesRQ','getRegisters']),
+    ...mapActions("plates",['getIsPlatesRQ','getRegisters','putRegisterId']),
     async getRegistersService(){
       try {
         this.loader = true
@@ -113,10 +114,20 @@ export default {
     calculateProgress(item){
       let dif = this.$moment(item.createdAt).diff(this.$moment(item.bumpers), 'seconds')
       let dif2 = this.$moment(item.createdAt).diff(this.$moment(new Date()), 'seconds')
-      if(dif == dif2){
+      if(dif == dif2 || dif2 < 0){
         return 99
       }
       return Number(dif2/dif*100).toFixed(0)
+    },
+    async updateStatus(id){
+      try {
+        let res = await this.putRegisterId(id)
+        console.log("res",res)
+      } catch (error) {
+        console.log("error",error)
+      } finally {
+        this.$emit('changeReloadTable', true)
+      }
     }
   },
   created(){
