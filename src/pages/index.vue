@@ -1,15 +1,21 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" class="px-5 py-5 d-flex flex-column" style="gap: 10px">
-      <VueApexCharts type="bar" height="550" :options="graphicNE.chartOptions" :series="graphicNE.series"></VueApexCharts>
-      <VueApexCharts type="bar" height="550" :options="graphicNP.chartOptions" :series="graphicNP.series"></VueApexCharts>
+      <GraphicEfficacyLevel :date="date"></GraphicEfficacyLevel>
+      <GraphicProductivityLevel :date="date"></GraphicProductivityLevel>
     </v-col>
   </v-row>
 </template>
 
 <script>
+import GraphicEfficacyLevel from "@/components/indicadores/GraphicEfficacyLevel.vue"
+import GraphicProductivityLevel from "@/components/indicadores/GraphicProductivityLevel.vue"
 export default {
   name: 'IndexPage',
+  components: {
+    GraphicEfficacyLevel,
+    GraphicProductivityLevel
+  },
   data: () => ({
     graphicNE: {
       series: [
@@ -157,7 +163,7 @@ export default {
           },
         }
       }
-    },    
+    },
     graphicNP: {
       series: [
         {
@@ -305,6 +311,25 @@ export default {
         }
       }
     }
-  })
+  }),
+  computed: {
+    date() {
+      let f = new Date()
+      return f.getFullYear() + '-' + this.getMonth(f.getMonth())
+    }
+  },
+  methods: {
+    getMonth(m) {
+      if (m == 11) {
+        m = '01'
+      } else {
+        m += 1
+        if (m < 10) {
+          m = '0' + m
+        }
+      }
+      return m
+    }
+  }
 }
 </script>

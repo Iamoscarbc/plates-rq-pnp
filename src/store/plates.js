@@ -17,5 +17,11 @@ export const actions = {
     },
     async putRegisterId({state, commit}, data){
         return await PlatesService.putRegisterId(this.$axios, data)
+    },
+    async getGraphicEfficacyLevel({state, commit}, data){
+        return await PlatesService.getGraphicEfficacyLevel(this.$axios, data)
+    },
+    async getGraphicProductivityLevel({state, commit}, data){
+        return await PlatesService.getGraphicProductivityLevel(this.$axios, data)
     }
 }

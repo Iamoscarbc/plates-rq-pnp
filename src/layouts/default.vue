@@ -65,6 +65,16 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'Registros',
           to: '/consulta-rq'
+        },
+        {
+          icon: 'mdi-chart-bar',
+          title: 'Nivel de Eficacia',
+          to: '/indicador/nivel-eficacia'
+        },
+        {
+          icon: 'mdi-chart-bar',
+          title: 'Nivel de Productividad',
+          to: '/indicador/nivel-productividad'
         }
       ],
       title: 'Reconocimiento de Placas'

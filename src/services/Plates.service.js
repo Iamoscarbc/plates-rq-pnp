@@ -15,5 +15,11 @@ export default {
     },
     putRegisterId: ($axios, id) => {
         return $axios.$put(`${base}/register/${id}`)
-    }, 
+    },
+    getGraphicEfficacyLevel: ($axios, date) => {
+        return $axios.$get(`${base}/morth/${date}`)
+    },
+    getGraphicProductivityLevel: ($axios, date) => {
+        return $axios.$get(`${base}/morth/${date}`)
+    },
 }
