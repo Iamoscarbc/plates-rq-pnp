@@ -6,7 +6,7 @@
           accept="image/png, image/jpeg, image/bmp"
           placeholder="Capturar Placa"
           prepend-icon="mdi-camera"
-          label="Capturar Placa"
+          label="Capturar y Registrar Placa"
           @change="changeImage($event)"
           @click:clear="changeImage()"
         ></v-file-input>
