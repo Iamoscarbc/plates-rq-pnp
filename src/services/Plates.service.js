@@ -17,9 +17,9 @@ export default {
         return $axios.$put(`${base}/register/${id}`)
     },
     getGraphicEfficacyLevel: ($axios, date) => {
-        return $axios.$get(`${base}/morth/${date}`)
+        return $axios.$get(`${base}/lvlefficacy/${date}`)
     },
     getGraphicProductivityLevel: ($axios, date) => {
-        return $axios.$get(`${base}/morth/${date}`)
+        return $axios.$get(`${base}/lvlproductivity/${date}`)
     },
 }
