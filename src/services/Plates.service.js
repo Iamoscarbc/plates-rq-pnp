@@ -10,4 +10,7 @@ export default {
     getIsPlatesRQ: ($axios, data) => {
         return $axios.$post(`${base}/filter`, data)
     },
+    getRegisters: ($axios) => {
+        return $axios.$get(`${base}/all`)
+    },
 }

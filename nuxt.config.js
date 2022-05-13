@@ -1,4 +1,5 @@
 import colors from 'vuetify/es5/util/colors'
+import es from 'vuetify/lib/locale/es'
 
 export default {
   env: {
@@ -44,6 +45,7 @@ export default {
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    '@nuxtjs/moment',
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
@@ -62,9 +64,18 @@ export default {
     }
   },
 
+  moment: {
+    defaultLocale: 'es',
+    locales: ['es']
+  },
+
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
+    lang: {
+      locales: { es },
+      current: 'es',
+    },
     theme: {
       dark: true,
       themes: {
