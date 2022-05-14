@@ -84,7 +84,7 @@ export default {
                                         </div>
                                         <div class="d-flex flex-row align-items-center" style="gap: 8px;">
                                             <span class="circle-point" style="background: orange;"></span>
-                                            <span style="font-size: 12px">NE: &nbsp;&nbsp;${w.config.series[0].data[dataPointIndex].NE}</span>
+                                            <span style="font-size: 12px">NE: &nbsp;&nbsp;${ (w.config.series[0].data[dataPointIndex].NE).toFixed(2) }</span>
                                         </div>
                                     </div>
                                 </div>
