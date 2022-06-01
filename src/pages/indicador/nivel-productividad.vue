@@ -53,6 +53,7 @@ function getMonth(m){
 import GraphicProductivityLevel from "@/components/indicadores/GraphicProductivityLevel.vue"
 export default {
     name: 'ProductivityLevel',
+    layout: 'auth',
     components: {
         GraphicProductivityLevel
     },

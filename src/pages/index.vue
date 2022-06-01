@@ -12,6 +12,7 @@ import GraphicEfficacyLevel from "@/components/indicadores/GraphicEfficacyLevel.
 import GraphicProductivityLevel from "@/components/indicadores/GraphicProductivityLevel.vue"
 export default {
   name: 'IndexPage',
+  layout: 'auth',
   components: {
     GraphicEfficacyLevel,
     GraphicProductivityLevel

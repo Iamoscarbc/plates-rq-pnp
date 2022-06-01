@@ -20,6 +20,7 @@ import { mapActions } from 'vuex'
 import TableRegisters from '@/components/consulta-rq/Table.vue'
 export default {
   name: 'ConsultaRQ',
+  layout: 'auth',
   components: {
     TableRegisters
   },

@@ -27,6 +27,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '@/plugins/axios.client.js',
     { src: '@/plugins/vue-apexchart.js', mode: 'client'},
   ],
 
@@ -41,9 +42,8 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/pwa
+    '@nuxtjs/auth',
     '@nuxtjs/pwa',
     '@nuxtjs/moment',
   ],
@@ -55,6 +55,26 @@ export default {
   },
   proxy:{
     '/api/': process.env.API_URL
+  },
+
+  
+  auth:{
+    redirect: {
+      login: '/iniciar-sesion',
+      logout: '/iniciar-sesion',
+      home: '/',
+    },
+    strategies: {
+      localLogin:{
+        _scheme: '~/schemes/localLogin',
+        endpoints:{
+          login: { url: '/api/auth/login', method: 'post', propertyName: 'data.accessToken' },
+          logout: false,
+          user: { url: '/api/user/account', method: 'get', propertyName: 'data'}
+        },
+        tokenType: 'Bearer'
+      }
+    }
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa

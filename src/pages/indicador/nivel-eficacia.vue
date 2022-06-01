@@ -53,6 +53,7 @@ function getMonth(m){
 import GraphicEfficacyLevel from "@/components/indicadores/GraphicEfficacyLevel.vue"
 export default {
     name: 'EfficacyLevel',
+    layout: 'auth',
     components: {
         GraphicEfficacyLevel
     },
