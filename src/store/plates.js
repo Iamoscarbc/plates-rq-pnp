@@ -9,7 +9,8 @@ export const mutations = {}
 
 export const actions = {
     async getIsPlatesRQ({state, commit}, data){
-        let res = await PlatesService.verifyPlates(this.$axios, data)
+        let res = await PlatesService.verifyPlates(this.$axios, data.body)
+        res.results.map(x => x.location = data.location)
         return await PlatesService.getIsPlatesRQ(this.$axios, res.results)
     },
     async getRegisters({state, commit}){
