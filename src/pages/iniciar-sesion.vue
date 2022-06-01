@@ -21,10 +21,10 @@
         >
         </v-text-field>
 
-        <v-btn color="primary" large v-if="validForm" @click="save">
+        <v-btn color="primary" large v-if="validForm && !loading" @click="save">
           Iniciar Sesión
         </v-btn>
-        <v-btn color="primary" large v-else disabled>
+        <v-btn color="primary" large v-else disabled :loading="loading">
           Iniciar Sesión
         </v-btn>
       </v-form>
@@ -33,12 +33,14 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 import helperValidation from '~/helpers/validations';
 export default {
   name: 'LoginPage',
   data: () => ({
     validForm: false,
     showPassword: false,
+    loading: false,
     user: {
       email: '',
       password: ''
@@ -53,8 +55,17 @@ export default {
     }
   }),
   methods: {
-    save(){
-      console.log("save", this.user)
+    ...mapActions("account",['login']),
+    async save(){
+      try {
+        this.loading = true
+        let res = await this.login(this.user)
+        console.log("res",res)
+      } catch (error) {
+        console.log("error",error)
+      } finally {
+        this.loading = false
+      }
     }
   }
 }
