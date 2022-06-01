@@ -17,7 +17,8 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel:"stylesheet", href:"https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" }
     ]
   },
 
@@ -29,6 +30,7 @@ export default {
   plugins: [
     '@/plugins/axios.client.js',
     { src: '@/plugins/vue-apexchart.js', mode: 'client'},
+    { src: '@/plugins/vue-mapbox.js', mode: 'client'},
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -45,7 +47,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/pwa',
-    '@nuxtjs/moment',
+    '@nuxtjs/moment'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

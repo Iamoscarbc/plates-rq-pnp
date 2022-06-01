@@ -54,21 +54,34 @@
         </v-progress-circular>
       </template>
       <template v-slot:item.actions="{ item }" >
-        <v-btn v-if="item.status == 0"
-          small
-          color="success"
-          @click="updateStatus(item._id)">
-            Finalizar
-        </v-btn>
+        <div class="d-flex" style="gap: 10px">
+          <v-btn
+            small
+            color="primary"
+            @click="viewDetail(item._id)">
+              Detalle
+          </v-btn>
+          <v-btn v-if="item.status == 0"
+            small
+            color="success"
+            @click="updateStatus(item._id)">
+              Finalizar
+          </v-btn>
+        </div>
       </template>
     </v-data-table>
+    <ModalDetailRow :data="row" :show="show" @changeShowModal="changeShowModal($event)"/>
   </v-card>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
+import ModalDetailRow from './ModalDetail.vue'
 export default {
   name: 'TableRegisters',
+  components: {
+    ModalDetailRow
+  },
   props: {
     reloadTable: {
         type: Boolean
@@ -85,7 +98,9 @@ export default {
       { text: 'Fecha Término', value: 'finishedAt', width: '155' },
       { text: 'Estado', value: 'status', width: '120' },
       { text: 'Acciones', value: 'actions', width: '120' },
-    ]
+    ],
+    row: null,
+    show: false
   }),
   watch: {
     reloadTable(val){
@@ -128,6 +143,13 @@ export default {
       } finally {
         this.$emit('changeReloadTable', true)
       }
+    },
+    viewDetail(id){
+      this.row = this.results.filter(x => x._id == id)[0]
+      this.show = true
+    },
+    changeShowModal(value){
+      this.show = value
     }
   },
   created(){
