@@ -112,9 +112,9 @@ export default {
       }
     },
     calculateProgress(item){
-      let dif = this.$moment(item.createdAt).diff(this.$moment(item.bumpers), 'seconds')
-      let dif2 = this.$moment(item.createdAt).diff(this.$moment(new Date()), 'seconds')
-      if(dif == dif2 || dif2 < 0){
+      let dif = this.$moment(item.bumpers).diff(this.$moment(item.createdAt), 'seconds')
+      let dif2 = this.$moment(new Date()).diff(this.$moment(item.createdAt), 'seconds')
+      if(dif == dif2 || (dif-dif2) < 0){
         return 99
       }
       return Number(dif2/dif*100).toFixed(0)
