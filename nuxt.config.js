@@ -67,12 +67,11 @@ export default {
       home: '/',
     },
     strategies: {
-      localLogin:{
-        _scheme: '~/schemes/localLogin',
+      local:{
         endpoints:{
-          login: { url: '/api/auth/login', method: 'post', propertyName: 'data.accessToken' },
+          login: { url: '/api/info-plate/auth/login', method: 'post', propertyName: 'result.access_token' },
           logout: false,
-          user: { url: '/api/user/account', method: 'get', propertyName: 'data'}
+          user: { url: '/api/info-plate/auth/user-info', method: 'get', propertyName: 'result'}
         },
         tokenType: 'Bearer'
       }

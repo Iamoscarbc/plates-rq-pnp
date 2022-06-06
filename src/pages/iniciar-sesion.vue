@@ -36,6 +36,7 @@
 import { mapActions } from 'vuex'
 import helperValidation from '~/helpers/validations';
 export default {
+  layout: 'not-auth',
   name: 'LoginPage',
   data: () => ({
     validForm: false,
@@ -50,7 +51,7 @@ export default {
           value => helperValidation.isEmailValid(value) || 'Ingrese correo válido'
       ],
       password: [
-          value => helperValidation.isPasswordValid(value) || "Ingrese contraseña válida"
+          // value => helperValidation.isPasswordValid(value) || "Ingrese contraseña válida"
       ]
     }
   }),

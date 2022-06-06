@@ -23,6 +23,13 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
+      <template v-slot:append>
+        <div class="pa-2">
+          <v-btn block @click="closeSession()">
+            Cerrar Sesión
+          </v-btn>
+        </div>
+      </template>
     </v-navigation-drawer>
     <v-app-bar
       :clipped-left="clipped"
@@ -48,6 +55,7 @@
 </template>
 
 <script>
+import { mapActions } from 'vuex'
 export default {
   name: 'DefaultLayout',
   middleware: 'auth',
@@ -91,6 +99,12 @@ export default {
         case 'xl': return false
       }
     },
+  },
+  methods:{
+    ...mapActions("account",['logout']),
+    closeSession(){
+      this.logout()
+    }
   }
 }
 </script>
