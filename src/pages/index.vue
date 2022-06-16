@@ -1,8 +1,9 @@
 <template>
   <v-row justify="center" align="center">
     <v-col cols="12" class="px-5 py-5 d-flex flex-column" style="gap: 10px">
-      <GraphicEfficacyLevel :date="date"></GraphicEfficacyLevel>
-      <GraphicProductivityLevel :date="date"></GraphicProductivityLevel>
+      <h1>Bienvenido, {{ nameUser }} !</h1>
+      <GraphicEfficacyLevel :date="date" v-if="verifyRole('get-lvlefficacy')"></GraphicEfficacyLevel>
+      <GraphicProductivityLevel :date="date" v-if="verifyRole('get-lvlproductivity')"></GraphicProductivityLevel>
     </v-col>
   </v-row>
 </template>
@@ -317,6 +318,10 @@ export default {
     date() {
       let f = new Date()
       return f.getFullYear() + '-' + this.getMonth(f.getMonth())
+    },
+    nameUser(){
+      if(this.$auth.user) return this.$auth.user.nombres
+      return ''
     }
   },
   methods: {
@@ -330,6 +335,12 @@ export default {
         }
       }
       return m
+    },
+    verifyRole(rol){
+      if(this.$auth.user){
+        return this.$auth.user.perfil.role.includes(rol)
+      }
+      return false
     }
   }
 }

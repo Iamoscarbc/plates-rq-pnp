@@ -22,6 +22,12 @@ import TableRegisters from '@/components/consulta-rq/Table.vue'
 export default {
   name: 'ConsultaRQ',
   layout: 'auth',
+  meta: {
+    auth: { role: [
+      'get-all-info-placa',
+      'filter-info-placa'
+    ] }
+  },
   components: {
     TableRegisters
   },

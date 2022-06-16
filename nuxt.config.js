@@ -29,8 +29,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '@/plugins/axios.client.js',
-    { src: '@/plugins/vue-apexchart.js', mode: 'client'},
-    { src: '@/plugins/vue-mapbox.js', mode: 'client'},
+    { src: '@/plugins/vue-apexchart.js', mode: 'client'}
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -47,7 +46,10 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/auth',
     '@nuxtjs/pwa',
-    '@nuxtjs/moment'
+    '@nuxtjs/moment',
+    ['nuxt-gmaps', {
+      key: 'AIzaSyCUfoh_5I2vsurqaFpU20cEgOPQ7x0OhkE',
+    }]
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

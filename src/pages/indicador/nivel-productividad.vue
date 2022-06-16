@@ -54,6 +54,11 @@ import GraphicProductivityLevel from "@/components/indicadores/GraphicProductivi
 export default {
     name: 'ProductivityLevel',
     layout: 'auth',
+    meta: {
+        auth: { role: [
+        'get-lvlproductivity',
+        ] }
+    },
     components: {
         GraphicProductivityLevel
     },

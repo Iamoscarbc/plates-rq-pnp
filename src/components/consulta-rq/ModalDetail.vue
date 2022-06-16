@@ -11,15 +11,26 @@
                         </v-progress-circular>
                     </template>
                 </v-card-title>
-                    <MglMap 
-                    :accessToken="accessToken" 
-                    :mapStyle="mapStyle"
-                    :center="coordinates">
-                        <MglMarker :coordinates="coordinates" color="blue" />
-                    </MglMap>
-                <v-card-text>
-
-                </v-card-text>
+                <GMap v-if="!!data.detail.location"
+                    ref="gMap"
+                    language="en"
+                    :center="{lat: data.detail.location.latitude, lng: data.detail.location.longitude}"
+                    :options="{fullscreenControl: false}"
+                    :zoom="6"
+                    >
+                    <GMapMarker
+                        :position="{lat: data.detail.location.latitude, lng: data.detail.location.longitude}"
+                        :options="{icon: data.detail.location === currentLocation ? pins.selected : pins.notSelected}"
+                        @click="currentLocation = data.detail.location"
+                    >
+                        <GMapInfoWindow :options="{maxWidth: 200}">
+                        <code>
+                            lat: {{ data.detail.location.latitude }},
+                            lng: {{ data.detail.location.longitude }}
+                        </code>
+                        </GMapInfoWindow>
+                    </GMapMarker>
+                </GMap>
             </v-card>
         </v-dialog>
     </div>
@@ -38,9 +49,12 @@ export default {
     },
     data() {
         return {
-            accessToken: "ACCESS_TOKEN",
-            mapStyle: "mapbox://styles/mapbox/basic-v10",
-            coordinates: [ -111.549668, 39.014 ]
+            coordinates: [ -111.549668, 39.014 ],
+            currentLocation: '',
+            pins: {
+                selected: '',
+                notSelected: ''
+            }
         };
     },
     computed: {

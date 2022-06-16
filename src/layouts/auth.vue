@@ -58,34 +58,12 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'DefaultLayout',
-  middleware: 'auth',
+  middleware: ['auth','verify-roles'],
   data () {
     return {
       clipped: true,
       drawer: false,
       fixed: true,
-      items: [
-        {
-          icon: 'mdi-home',
-          title: 'Inicio',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Registros',
-          to: '/consulta-rq'
-        },
-        {
-          icon: 'mdi-chart-bar',
-          title: 'Nivel de Eficacia',
-          to: '/indicador/nivel-eficacia'
-        },
-        {
-          icon: 'mdi-chart-bar',
-          title: 'Nivel de Productividad',
-          to: '/indicador/nivel-productividad'
-        }
-      ],
       title: 'Reconocimiento de Placas'
     }
   },
@@ -99,6 +77,39 @@ export default {
         case 'xl': return false
       }
     },
+    items () {
+      let items = [
+        {
+          icon: 'mdi-home',
+          title: 'Inicio',
+          to: '/',
+          role: 'home-page'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Registros',
+          to: '/consulta-rq',
+          role: 'get-all-info-placa'
+        },
+        {
+          icon: 'mdi-chart-bar',
+          title: 'Nivel de Eficacia',
+          to: '/indicador/nivel-eficacia',
+          role: 'get-lvlefficacy'
+        },
+        {
+          icon: 'mdi-chart-bar',
+          title: 'Nivel de Productividad',
+          to: '/indicador/nivel-productividad',
+          role: 'get-lvlproductivity'
+        }
+      ]
+
+      if(this.$auth.user){
+        return items.filter( (element) => this.$auth.user.perfil.role.includes(element.role));
+      }
+      return []      
+    }
   },
   methods:{
     ...mapActions("account",['logout']),

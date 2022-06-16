@@ -54,6 +54,11 @@ import GraphicEfficacyLevel from "@/components/indicadores/GraphicEfficacyLevel.
 export default {
     name: 'EfficacyLevel',
     layout: 'auth',
+    meta: {
+        auth: { role: [
+        'get-lvlefficacy',
+        ] }
+    },
     components: {
         GraphicEfficacyLevel
     },
