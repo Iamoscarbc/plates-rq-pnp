@@ -87,6 +87,12 @@ export default {
         },
         {
           icon: 'mdi-chart-bubble',
+          title: 'Leer Placas',
+          to: '/get-image',
+          role: 'home-page'
+        },
+        {
+          icon: 'mdi-chart-bubble',
           title: 'Registros',
           to: '/consulta-rq',
           role: 'get-all-info-placa'

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>Make your own "Teachable Machine" using Transfer Learning with MobileNet v3 in TensorFlow.js using saved graph model from TFHub.</h1>
-
     <p id="status">{{ status }}</p>
 
     <video id="webcam" autoplay muted :srcObject.prop="video.srcObject"></video>
@@ -187,11 +185,12 @@ export default {
         await this.loadMobileNetFeatureModel()
         await this.defineModel()
         VIDEO = document.getElementById('webcam')
+        await this.enableCam()
     }
 }
 </script>
 
-<style>
+<style scoped>
 h1 {
   font-style: italic;
   color: #FF6F00;
