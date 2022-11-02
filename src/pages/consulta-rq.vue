@@ -2,6 +2,7 @@
   <v-row justify="center" align="center">
     <v-col cols="12" class="px-5 py-5 align-self-start">
         <v-file-input v-if="!blockInput"
+          light
           :rules="rules"
           accept="image/png, image/jpeg, image/bmp"
           placeholder="Capturar Placa"
@@ -10,7 +11,7 @@
           @change="changeImage($event)"
           @click:clear="changeImage()"
         ></v-file-input>
-        <span v-else>Activar los permisos de ubicación y recargar la página para proceder a registrar.</span>
+        <span v-else class="black--text">Activar los permisos de ubicación y recargar la página para proceder a registrar.</span>
         <TableRegisters :reloadTable="reloadTable" @changeReloadTable="changeReloadTable($event)"></TableRegisters>
     </v-col>
   </v-row>

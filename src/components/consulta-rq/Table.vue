@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card light>
     <v-card-title>
       Registros
       <v-spacer></v-spacer>
@@ -12,6 +12,7 @@
       ></v-text-field>
     </v-card-title>
     <v-data-table
+      light
       :headers="headers"
       :items="results"
       :items-per-page="10"

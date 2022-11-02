@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p id="status">{{ status }}</p>
+    <p id="status" class="black--text">{{ status }}</p>
 
     <video id="webcam" autoplay muted :srcObject.prop="video.srcObject"></video>
 

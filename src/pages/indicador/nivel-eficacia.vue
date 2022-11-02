@@ -11,6 +11,8 @@
             >
             <template v-slot:activator="{ on, attrs }">
                 <v-text-field
+                light
+                color="primaryCustom"
                 v-model="date"
                 label="Birthday date"
                 prepend-icon="mdi-calendar"
@@ -20,7 +22,8 @@
                 ></v-text-field>
             </template>
             <v-date-picker
-                color="primary"
+                light
+                color="primaryCustom"
                 v-model="date"
                 type="month"
                 :active-picker.sync="activePicker"
