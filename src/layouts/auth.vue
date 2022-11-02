@@ -1,10 +1,11 @@
 <template>
-  <v-app dark>
+  <v-app dark style="background: #fcfdfd">
     <v-navigation-drawer
       v-model="drawer"
       :clipped="clipped"
       mobile-breakpoint="450"
       :fixed="false"
+      :color="'#0c595f'"
       app
     >
       <v-list>
@@ -25,7 +26,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn block @click="closeSession()">
+          <v-btn :color="'#14a1fd'" block @click="closeSession()">
             Cerrar Sesión
           </v-btn>
         </div>
@@ -34,10 +35,16 @@
     <v-app-bar
       :clipped-left="clipped"
       fixed
+      :color="'#0c595f'"
       app
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title v-text="title" />
+      <v-spacer />
+      <div class="d-flex flex-column align-items-center">
+        <span class="secondaryCustom--text font-weight-black text-center">POLICIA NACIONAL DEL PERU</span>
+        <span class="secondaryCustom--text font-weight-black text-center">SISTEMA DE REQUISITORIA VEHICULAR CON IA</span>
+      </div>
       <v-spacer />
     </v-app-bar>
     <v-main>
@@ -47,6 +54,7 @@
     </v-main>
     <v-footer
       :absolute="!fixed"
+      :color="'#0c898f'"
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
