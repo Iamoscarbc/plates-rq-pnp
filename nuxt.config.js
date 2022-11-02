@@ -19,6 +19,9 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel:"stylesheet", href:"https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css" }
+    ],
+    script: [
+      { src: "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js"}
     ]
   },
 
