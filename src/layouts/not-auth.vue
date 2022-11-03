@@ -1,15 +1,45 @@
 <template>
   <v-app dark>
-    <v-main>
+    <v-app-bar
+      fixed
+      :color="'#0c595f'"
+      app
+    >
+      <v-spacer />
+      <div class="d-flex flex-column align-items-center">
+        <span class="secondaryCustom--text font-weight-black text-center">POLICIA NACIONAL DEL PERU</span>
+        <span class="secondaryCustom--text font-weight-black text-center">SISTEMA DE REQUISITORIA VEHICULAR CON IA</span>
+      </div>
+      <v-spacer />
+    </v-app-bar>
+    <v-main style="background: #d9ebe9">
       <v-container style="height: 100%;">
         <Nuxt />
       </v-container>
     </v-main>
     <v-footer
       :absolute="!fixed"
+      :color="'#0c898f'"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <v-row>
+        <v-col class="d-flex flex-column align-items-center text-center">
+          <span>SIGE</span>
+          <a href="https://aplicaciones.mininter.gob.pe/sige/" target="_blank" style="color: white;">https://aplicaciones.mininter.gob.pe/sige/</a>
+        </v-col>
+        <v-col class="d-flex flex-column align-items-center text-center">
+          <span>CORREO</span>
+          <a href="https://correo.policia.gob.pe/" target="_blank" style="color: white;">https://correo.policia.gob.pe/</a>
+        </v-col>
+        <v-col class="d-flex flex-column align-items-center text-center">
+          <span>WEB PNP</span>
+          <a href="https://www.policia.gob.pe/" target="_blank" style="color: white;">https://www.policia.gob.pe/</a>
+        </v-col>
+        <v-col class="d-flex flex-column align-items-center text-center">
+          <span>MPD</span>
+          <a href="https://mpd.policia.gob.pe/" target="_blank" style="color: white;">https://mpd.policia.gob.pe/</a>
+        </v-col>
+      </v-row>
     </v-footer>
   </v-app>
 </template>

@@ -114,7 +114,8 @@ export default {
           error: colors.deepOrange.accent4,
           success: colors.green.accent3,
           primaryCustom: '#0c595f',
-          secondaryCustom: '#b19464'
+          secondaryCustom: '#b19464',
+          infoCustom: '#14a1fd'
         }
       }
     }

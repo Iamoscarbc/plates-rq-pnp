@@ -26,7 +26,7 @@
       </v-list>
       <template v-slot:append>
         <div class="pa-2">
-          <v-btn :color="'#14a1fd'" block @click="closeSession()">
+          <v-btn color="infoCustom" block @click="closeSession()">
             Cerrar Sesión
           </v-btn>
         </div>

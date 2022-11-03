@@ -1,9 +1,16 @@
 <template>
   <v-row class="login" justify="center" align="center" style="height: 100%">
-    <v-col cols="4" class="px-5 py-5 d-flex flex-column" style="gap: 10px">
-      <v-form ref="formLogin" v-model="validForm" class="d-flex flex-column align-center" style="gap: 10px">
+    <v-col cols="4" class="d-flex flex-column align-center">
+      <img src="@/assets/img/Escudo_de_la_Policía_Nacional_del_Perú.png" style="height: 370px; max-width: 370px;">
+    </v-col>
+    <v-col cols="4" class="px-5 py-5 d-flex flex-column" style="gap: 10px; background-color: #20676d;">
+      <v-form ref="formLogin" v-model="validForm" 
+      class="d-flex flex-column align-center" style="gap: 10px">
         <h1 class="text-center mb-3">Inicio de Sesión</h1>
         <v-text-field 
+          light
+          color="infoCustom"
+          background-color="#fcfdfd"
           v-model="user.email" 
           label="Correo Electrónico"
           :rules="rules.email" 
@@ -11,23 +18,29 @@
         </v-text-field>
 
         <v-text-field
+          light
           :type="showPassword ? 'text' : 'password'"
           :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
           v-model="user.password"
           label="Contraseña"
           :rules="rules.password"
           filled
+          color="infoCustom"
+          background-color="#fcfdfd"
           @click:append="showPassword = !showPassword"
         >
         </v-text-field>
 
-        <v-btn color="primary" large v-if="validForm && !loading" @click="save">
+        <v-btn color="infoCustom" large v-if="validForm && !loading" @click="save">
           Iniciar Sesión
         </v-btn>
-        <v-btn color="primary" large v-else disabled :loading="loading">
+        <v-btn color="infoCustom" large v-else disabled :loading="loading">
           Iniciar Sesión
         </v-btn>
       </v-form>
+    </v-col>
+    <v-col cols="4" class="d-flex flex-column align-center">
+      <img src="@/assets/img/region_policial_lima.png" style="height: 370px; max-width: 370px;">
     </v-col>
   </v-row>
 </template>
