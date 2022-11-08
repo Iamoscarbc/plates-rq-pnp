@@ -41,7 +41,7 @@ export default {
                     enabled: false
                 },
                 title: {
-                    text: "Nivel de Eficacia",
+                    text: "Eficacia",
                     align: 'center',
                     margin: 30,
                     style: {

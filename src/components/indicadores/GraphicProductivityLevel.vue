@@ -41,7 +41,7 @@ export default {
                     enabled: false
                 },
                 title: {
-                    text: "Nivel de Productividad",
+                    text: "Requisitoriados",
                     align: 'center',
                     margin: 30,
                     style: {

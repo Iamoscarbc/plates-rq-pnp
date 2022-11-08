@@ -24,20 +24,16 @@
     >
       <v-row>
         <v-col class="d-flex flex-column align-items-center text-center">
-          <span>SIGE</span>
-          <a href="https://aplicaciones.mininter.gob.pe/sige/" target="_blank" style="color: white;">https://aplicaciones.mininter.gob.pe/sige/</a>
+          <a href="https://aplicaciones.mininter.gob.pe/sige/" target="_blank" style="color: white;">SIGE</a>
         </v-col>
         <v-col class="d-flex flex-column align-items-center text-center">
-          <span>CORREO</span>
-          <a href="https://correo.policia.gob.pe/" target="_blank" style="color: white;">https://correo.policia.gob.pe/</a>
+          <a href="https://correo.policia.gob.pe/" target="_blank" style="color: white;">CORREO</a>
         </v-col>
         <v-col class="d-flex flex-column align-items-center text-center">
-          <span>WEB PNP</span>
-          <a href="https://www.policia.gob.pe/" target="_blank" style="color: white;">https://www.policia.gob.pe/</a>
+          <a href="https://www.policia.gob.pe/" target="_blank" style="color: white;">WEB PNP</a>
         </v-col>
         <v-col class="d-flex flex-column align-items-center text-center">
-          <span>MPD</span>
-          <a href="https://mpd.policia.gob.pe/" target="_blank" style="color: white;">https://mpd.policia.gob.pe/</a>
+          <a href="https://mpd.policia.gob.pe/" target="_blank" style="color: white;">MPD</a>
         </v-col>
       </v-row>
     </v-footer>

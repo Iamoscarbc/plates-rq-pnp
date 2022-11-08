@@ -2,8 +2,14 @@
   <v-row justify="center" align="center">
     <v-col cols="12" class="px-5 py-5 d-flex flex-column" style="gap: 10px">
       <h1 class="black--text">Bienvenido, {{ nameUser }}</h1>
-      <GraphicEfficacyLevel :date="date" v-if="verifyRole('get-lvlefficacy')"></GraphicEfficacyLevel>
-      <GraphicProductivityLevel :date="date" v-if="verifyRole('get-lvlproductivity')"></GraphicProductivityLevel>
+      <v-row>
+        <v-col>
+          <GraphicEfficacyLevel :date="date" v-if="verifyRole('get-lvlefficacy')"></GraphicEfficacyLevel>
+        </v-col>
+        <v-col>
+          <GraphicProductivityLevel :date="date" v-if="verifyRole('get-lvlproductivity')"></GraphicProductivityLevel>
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 </template>
