@@ -32,7 +32,7 @@
                 @change="save"
             ></v-date-picker>
         </v-menu>
-        <GraphicEfficacyLevel :date="date"></GraphicEfficacyLevel>
+        <GraphicEfficacy :date="date"></GraphicEfficacy>
     </v-col>
   </v-row>
 </template>
@@ -53,7 +53,7 @@ function getMonth(m){
     return m
 }
 
-import GraphicEfficacyLevel from "@/components/indicadores/GraphicEfficacyLevel.vue"
+import GraphicEfficacy from "@/components/indicadores/GraphicEfficacy.vue"
 export default {
     name: 'EfficacyLevel',
     layout: 'auth',
@@ -63,7 +63,7 @@ export default {
         ] }
     },
     components: {
-        GraphicEfficacyLevel
+        GraphicEfficacy
     },
     data: () => ({
         date: dateInit,

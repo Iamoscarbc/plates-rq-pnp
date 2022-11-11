@@ -1,7 +1,7 @@
 <template>
     <v-row justify="center" align="center">
         <v-col cols="12" class="px-5 py-5 d-flex flex-column" style="gap: 10px">
-            <VueApexCharts type="bar" height="550" :options="graphicNP.chartOptions" :series="series" v-if="!loading">
+            <VueApexCharts type="bar" height="550" :options="graphicNE.chartOptions" :series="series" v-if="!loading">
             </VueApexCharts>
             <v-progress-circular v-else indeterminate>
             </v-progress-circular>
@@ -12,14 +12,14 @@
 <script>
 import { mapActions } from "vuex"
 export default {
-    name: 'GraphicProductivityLevelCompoNPnt',
+    name: 'GraphicEfficayComponent',
     props: {
         date: {
             type: String
         }
     },
     data: () => ({
-        graphicNP: {
+        graphicNE: {
             chartOptions: {
                 chart: {
                     height: 350,
@@ -41,7 +41,7 @@ export default {
                     enabled: false
                 },
                 title: {
-                    text: "Requisitoriados",
+                    text: "Eficacia",
                     align: 'center',
                     margin: 30,
                     style: {
@@ -54,7 +54,7 @@ export default {
                 legend: {
                     show: true,
                     showForSingleSeries: true,
-                    customLegendItems: [ 'NTAE','NTAP'],
+                    customLegendItems: [ 'NAET','NTAE'],
                     markers: {
                         fillColors: ['#00E396', '#775DD0']
                     },
@@ -76,15 +76,15 @@ export default {
                                     <div class="d-flex flex-column py-2 px-2">
                                         <div class="d-flex flex-row align-items-center" style="gap: 8px;">
                                             <span class="circle-point" style="background: ${w.config.colors[dataPointIndex]};"></span>
-                                            <span style="font-size: 12px">NTAE: &nbsp;&nbsp;${series[seriesIndex][dataPointIndex]}</span>
+                                            <span style="font-size: 12px">NAET: &nbsp;&nbsp;${series[seriesIndex][dataPointIndex]}</span>
                                         </div>
                                         <div class="d-flex flex-row align-items-center" style="gap: 8px;">
                                             <span class="circle-point" style="background: ${w.config.legend.markers.fillColors[1]};"></span>
-                                            <span style="font-size: 12px">NTAP: &nbsp;&nbsp;${w.config.series[0].data[dataPointIndex].goals[0].value}</span>
+                                            <span style="font-size: 12px">NTAE: &nbsp;&nbsp;${w.config.series[0].data[dataPointIndex].goals[0].value}</span>
                                         </div>
                                         <div class="d-flex flex-row align-items-center" style="gap: 8px;">
                                             <span class="circle-point" style="background: orange;"></span>
-                                            <span style="font-size: 12px">NP: &nbsp;&nbsp;${ (w.config.series[0].data[dataPointIndex].NP).toFixed(2) }</span>
+                                            <span style="font-size: 12px">NE: &nbsp;&nbsp;${ (w.config.series[0].data[dataPointIndex].NE).toFixed(2) }</span>
                                         </div>
                                     </div>
                                 </div>
@@ -100,34 +100,34 @@ export default {
     }),
     watch: {
       date(val){
-        this.getGraphicProductivityLevelService()
+        this.getGraphicEfficacyLevelService()
       }
     },
     computed: {
         series() {
             this.data.map((x) => {
                 x.x = x.date,
-                x.y = x.NTAE
-                x.NP = x.NP
+                x.y = x.NAET
+                x.NE = x.NE
                 x.goals = [{
-                    name: 'NTAP',
-                    value: x.NTAP,
+                    name: 'NTAE',
+                    value: x.NTAE,
                     strokeHeight: 5,
                     strokeColor: '#775DD0'
                 }]
             })
             return [{
-                name: 'NTAE',
+                name: 'NAET',
                 data: this.data
             }]
         }
     },
     methods: {
-        ...mapActions("plates",['getGraphicProductivityLevel']),
-        async getGraphicProductivityLevelService(){
+        ...mapActions("plates",['getGraphicEfficacyLevel']),
+        async getGraphicEfficacyLevelService(){
             try {
                 this.loading = true
-                let res = await this.getGraphicProductivityLevel(this.date.replace('-',''))
+                let res = await this.getGraphicEfficacyLevel(this.date.replace('-',''))
                 if( !!res.success ){
                     this.data = res.result
                 }
@@ -139,7 +139,7 @@ export default {
         },
     },
     created(){
-        this.getGraphicProductivityLevelService()
+        this.getGraphicEfficacyLevelService()
     }
 }
 </script>

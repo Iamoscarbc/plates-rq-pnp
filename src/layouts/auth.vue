@@ -70,7 +70,7 @@ export default {
   data () {
     return {
       clipped: true,
-      drawer: false,
+      drawer: true,
       fixed: true,
       title: 'Reconocimiento de Placas'
     }
@@ -101,14 +101,14 @@ export default {
         },
         {
           icon: 'mdi-chart-bar',
-          title: 'Nivel de Eficacia',
-          to: '/indicador/nivel-eficacia',
+          title: 'Eficacia',
+          to: '/indicador/eficacia',
           role: 'get-lvlefficacy'
         },
         {
           icon: 'mdi-chart-bar',
-          title: 'Nivel de Productividad',
-          to: '/indicador/nivel-productividad',
+          title: 'Requisitoriados',
+          to: '/indicador/requisitoriados',
           role: 'get-lvlproductivity'
         }
       ]

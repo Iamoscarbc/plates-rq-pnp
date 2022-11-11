@@ -32,7 +32,7 @@
                 @change="save"
             ></v-date-picker>
         </v-menu>
-        <GraphicProductivityLevel :date="date"></GraphicProductivityLevel>
+        <GraphicRequisitory :date="date"></GraphicRequisitory>
     </v-col>
   </v-row>
 </template>
@@ -53,7 +53,7 @@ function getMonth(m){
     return m
 }
 
-import GraphicProductivityLevel from "@/components/indicadores/GraphicProductivityLevel.vue"
+import GraphicRequisitory from "@/components/indicadores/GraphicRequisitory.vue"
 export default {
     name: 'ProductivityLevel',
     layout: 'auth',
@@ -63,7 +63,7 @@ export default {
         ] }
     },
     components: {
-        GraphicProductivityLevel
+        GraphicRequisitory
     },
     data: () => ({
         date: dateInit,

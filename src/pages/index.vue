@@ -4,10 +4,10 @@
       <h1 class="black--text">Bienvenido, {{ nameUser }}</h1>
       <v-row>
         <v-col>
-          <GraphicEfficacyLevel :date="date" v-if="verifyRole('get-lvlefficacy')"></GraphicEfficacyLevel>
+          <GraphicEfficacy :date="date" v-if="verifyRole('get-lvlefficacy')"></GraphicEfficacy>
         </v-col>
         <v-col>
-          <GraphicProductivityLevel :date="date" v-if="verifyRole('get-lvlproductivity')"></GraphicProductivityLevel>
+          <GraphicRequisitory :date="date" v-if="verifyRole('get-lvlproductivity')"></GraphicRequisitory>
         </v-col>
       </v-row>
     </v-col>
@@ -15,14 +15,14 @@
 </template>
 
 <script>
-import GraphicEfficacyLevel from "@/components/indicadores/GraphicEfficacyLevel.vue"
-import GraphicProductivityLevel from "@/components/indicadores/GraphicProductivityLevel.vue"
+import GraphicEfficacy from "@/components/indicadores/GraphicEfficacy.vue"
+import GraphicRequisitory from "@/components/indicadores/GraphicRequisitory.vue"
 export default {
   name: 'IndexPage',
   layout: 'auth',
   components: {
-    GraphicEfficacyLevel,
-    GraphicProductivityLevel
+    GraphicEfficacy,
+    GraphicRequisitory
   },
   data: () => ({
     graphicNE: {
