@@ -332,7 +332,7 @@ export default {
   },
   methods: {
     getMonth(m) {
-      if (m == 11) {
+      if (m == 12) {
         m = '01'
       } else {
         m += 1
