@@ -54,7 +54,7 @@ export default {
                 legend: {
                     show: true,
                     showForSingleSeries: true,
-                    customLegendItems: [ 'NAET','NTAE'],
+                    customLegendItems: [ 'NTAR','NTAP'],
                     markers: {
                         fillColors: ['#00E396', '#775DD0']
                     },
@@ -76,11 +76,11 @@ export default {
                                     <div class="d-flex flex-column py-2 px-2">
                                         <div class="d-flex flex-row align-items-center" style="gap: 8px;">
                                             <span class="circle-point" style="background: ${w.config.colors[dataPointIndex]};"></span>
-                                            <span style="font-size: 12px">NAET: &nbsp;&nbsp;${series[seriesIndex][dataPointIndex]}</span>
+                                            <span style="font-size: 12px">NTAR: &nbsp;&nbsp;${series[seriesIndex][dataPointIndex]}</span>
                                         </div>
                                         <div class="d-flex flex-row align-items-center" style="gap: 8px;">
                                             <span class="circle-point" style="background: ${w.config.legend.markers.fillColors[1]};"></span>
-                                            <span style="font-size: 12px">NTAE: &nbsp;&nbsp;${w.config.series[0].data[dataPointIndex].goals[0].value}</span>
+                                            <span style="font-size: 12px">NTAP: &nbsp;&nbsp;${w.config.series[0].data[dataPointIndex].goals[0].value}</span>
                                         </div>
                                         <div class="d-flex flex-row align-items-center" style="gap: 8px;">
                                             <span class="circle-point" style="background: orange;"></span>
@@ -110,14 +110,14 @@ export default {
                 x.y = x.NAET
                 x.NE = x.NE
                 x.goals = [{
-                    name: 'NTAE',
+                    name: 'NTAP',
                     value: x.NTAE,
                     strokeHeight: 5,
                     strokeColor: '#775DD0'
                 }]
             })
             return [{
-                name: 'NAET',
+                name: 'NTAR',
                 data: this.data
             }]
         }
